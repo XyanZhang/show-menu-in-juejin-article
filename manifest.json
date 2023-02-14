@@ -1,0 +1,27 @@
+{
+  "name": "Show Menu In JueJin Article",
+  "version": "1.0",
+  "description": "a plugin for JueJin to show menu in article",
+  "background": {
+    "scripts": ["background.js"],
+    "persistent": false
+  },
+  "options_page": "options.html",
+  "permissions": ["activeTab", "declarativeContent", "storage"],
+  "page_action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "icon/menu.png",
+      "32": "icon/menu.png",
+      "48": "icon/menu.png",
+      "128": "icon/menu.png"
+    }
+  },
+  "icons": {
+    "16": "icon/menu.png",
+    "32": "icon/menu.png",
+    "48": "icon/menu.png",
+    "128": "icon/menu.png"
+  },
+  "manifest_version": 2
+}
