@@ -1,21 +1,46 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
-      button {
-        height: 30px;
-        width: 30px;
-        outline: none;
-        margin: 10px;
+      #buttonDiv {
+        width: 60px;
+        height: 60px;
+        position: fixed;
+        user-select: none;
+      }
+      .menu-icon {
+        display: inline-block;
+        width: 40px;
+        height: 40px;
+        cursor: pointer;
+        overflow: hidden;
+        border-radius: 50%;
+        background: url('./icon/menu.png') no-repeat;
+        background-size: contain;
+      }
+      .title-list {
+        position: absolute;
+        top: 100%;
+        right: 0;
+        width: 200px;
+      }
+      .display-none {
+        display: none;
       }
     </style>
   </head>
   <body>
     <div id="buttonDiv">
-    </div>
-    <div>
-      <p>Choose a different background color!</p>
+      <span class="menu-icon"></span>
+      <ul class="title-list display-none">
+        <li>标题1</li>
+        <li>标题2</li>
+      </ul>
     </div>
   </body>
-  <script src="options.js"></script>
+  <script src="src/jquery.min.js"></script>
+  <script src="src/showMenu.js"></script>
 </html>

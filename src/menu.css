@@ -1,0 +1,37 @@
+.over {
+  color: darkred;
+}
+#buttonDiv {
+  width: 60px;
+  height: 60px;
+  position: fixed;
+  user-select: none;
+  top: 0;
+  right: 0;
+  z-index: 1000;
+}
+.menu-icon {
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  overflow: hidden;
+  border-radius: 50%;
+  /* background: url('icon/menu.png') no-repeat; */
+  background-size: contain;
+}
+.title-list {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  width: 200px;
+  background-color: aliceblue;
+  padding: 10px 20px;
+}
+.title-list li {
+  list-style: disc;
+  line-height: 2;
+}
+.display-none {
+  display: none;
+}
