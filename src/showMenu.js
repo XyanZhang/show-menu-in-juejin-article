@@ -21,30 +21,29 @@ window.onload = function () {
 
 function findH2Dom() {
   var menu = document.querySelector('.markdown-body');
-  var menuItems = menu.getElementsByTagName('h2');
+  var menuItems = menu.querySelectorAll("h2, h3"); // nodeName
   return menuItems;
 }
 
 function addHtmlToBody(htmlStr) {
   $('body').append(htmlStr)
 }
-function createDom(h2Dom) {
+function createDom(hDom) {
   let liList = ''
   
-  Array.from(h2Dom).forEach(h2 => {
-    liList += `<li>${h2.innerHTML}</li>`
+  Array.from(hDom).forEach(h => {
+    let nodeName = h.nodeName
+    console.log($(h)[0])
+    if(nodeName === 'H2') {
+      liList += `<li class="h2-title">${h.innerHTML}</li>`
+    }
+    if(nodeName === 'H3') {
+      liList += `<li class="h3-title">${h.innerHTML}</li>`
+    }
   });
   let ulContain = document.createElement('ul');
   ulContain.className = 'title-list' //  display-none
   ulContain.innerHTML = liList
-  // ulContain.addEventListener('click', function (e) {
-  //   let target = e.target;
-  //   console.log(target)
-  //   console.log(target.innerHTML)
-  //   let targetText = target.innerHTML;
-  //   let targetDom = document.querySelector(`h2:contains(${targetText})`);
-  //   targetDom.scrollIntoView();
-  // })
   const imgUrl = chrome.extension.getURL("icon/menu.png"); // 获取插件资源路径
   let htmlStr =  `<div id="buttonDiv">
                     <img src=${imgUrl} class="menu-icon"></img>
@@ -56,7 +55,7 @@ function createDom(h2Dom) {
 function addClickEvent(ulContain) {
   ulContain.addEventListener('click', function (e) {
     let target = e.target;
-    let targetDom = $('h2').eq($(target).index());
+    let targetDom = $('h2, h3').eq($(target).index());
     targetDom[0].scrollIntoView();
   })
 }
