@@ -48,3 +48,16 @@ DevTools Page 部分可以访问 devtools api，可以向当前 window 注入 JS
 ## Reference
 
 - [Chrome Extensions](https://developer.chrome.com/extensions)
+
+vue react devTools 原理：
+
+- Content Script 部分可以操作 DOM，可以监听 DOM Event。
+- Backgroud 部分可以访问 extension api，可以和 Content Script 还有 DevTools Page 通信。
+- DevTools Page 部分可以访问 devtools api，可以向当前 window 注入 JS 执行。
+
+通信过程：
+
+- DevTools Page 是可以在页面 eval JS 的，那就可以注入 backend 的代码
+- backend 的代码可以拿到 Vue 组件的信息，通过 window message 的方式传递给 Background。
+- Background 可以和 DevTools Page 通信，从而实现消息转发
+- DevTools Page 根据拿到的数据，渲染组件的信息，实现交互功能。
